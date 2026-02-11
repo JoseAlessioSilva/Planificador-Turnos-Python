@@ -49,8 +49,6 @@ class VistaPrincipal():
 
 
         # Variables campo de entrada 
-        #def get_selected_date():
-        #    selected_date = entrada3.get_date() 
 
         a_val = StringVar() 
 

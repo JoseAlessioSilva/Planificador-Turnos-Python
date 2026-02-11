@@ -29,7 +29,6 @@ class Sujeto:
 
     def notificar(self, *args):
         for observador in self.observadores:
-            # Le pasamos los argumentos (ej: los datos guardados) al observador
             observador.update(args)
 
 class Observador:
@@ -43,7 +42,7 @@ class ObservadorConcreto(Observador):
 
     def update(self, *args):
         print("Actualización dentro de ObservadorConcreto")
-        # Aquí se pueden procesar los datos recibidos desde el sujeto
+        # Datos recibidos desde el sujeto
         print("Datos recibidos: ", args)
         dia_hora = datetime.datetime.now()
         mensaje = f"[{dia_hora}] Se guardaron datos en la BD: {args}\n"
@@ -113,7 +112,7 @@ class BaseData(Sujeto):
             cursor.execute(sql, data)
             con.commit()
             con.close()
-            # Notificamos a los observadores que se ha guardado un nuevo registro en la base de datos
+            # Notificamos a los observadores que se ha agregado un nuevo registro
             self.notificar(nombre, apellido, dia)
         else:
             print("Error de Campo")
