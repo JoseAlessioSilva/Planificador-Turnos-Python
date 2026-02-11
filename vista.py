@@ -12,6 +12,9 @@ import os
     #------------------- VISTA ---------------------
 class VistaPrincipal():
     def __init__(self, ):
+        """
+        Esta es la clase principal de la vista.
+        """
         master = Tk()
         master.title("Planificador POO")
         # Sorpresa

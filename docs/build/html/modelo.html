@@ -1,0 +1,234 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="es" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>modelo module &mdash; documentación de Planificador_de_Turnos - 1.0</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=9edc463e" />
+
+  
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=4936afed"></script>
+      <script src="_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script src="_static/translations.js?v=f85f4cfb"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Índice" href="genindex.html" />
+    <link rel="search" title="Búsqueda" href="search.html" />
+    <link rel="next" title="servidor module" href="servidor.html" />
+    <link rel="prev" title="mis_regex module" href="mis_regex.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Planificador_de_Turnos
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Buscar documentos" aria-label="Buscar documentos" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Entrega final - Jose Alessio Silva</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="controlador.html">controlador module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html">main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mis_regex.html">mis_regex module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">modelo module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.BaseData"><code class="docutils literal notranslate"><span class="pre">BaseData</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseData.alta"><code class="docutils literal notranslate"><span class="pre">BaseData.alta()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseData.borrar"><code class="docutils literal notranslate"><span class="pre">BaseData.borrar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseData.consulta_treeview"><code class="docutils literal notranslate"><span class="pre">BaseData.consulta_treeview()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseData.crear_base"><code class="docutils literal notranslate"><span class="pre">BaseData.crear_base()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.BaseData.crear_tabla"><code class="docutils literal notranslate"><span class="pre">BaseData.crear_tabla()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Observador"><code class="docutils literal notranslate"><span class="pre">Observador</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Observador.update"><code class="docutils literal notranslate"><span class="pre">Observador.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.ObservadorConcreto"><code class="docutils literal notranslate"><span class="pre">ObservadorConcreto</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.ObservadorConcreto.update"><code class="docutils literal notranslate"><span class="pre">ObservadorConcreto.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.Sujeto"><code class="docutils literal notranslate"><span class="pre">Sujeto</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Sujeto.agregar"><code class="docutils literal notranslate"><span class="pre">Sujeto.agregar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Sujeto.notificar"><code class="docutils literal notranslate"><span class="pre">Sujeto.notificar()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#modelo.Sujeto.observadores"><code class="docutils literal notranslate"><span class="pre">Sujeto.observadores</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#modelo.decorador_log"><code class="docutils literal notranslate"><span class="pre">decorador_log()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="servidor.html">servidor module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="vista.html">vista module</a></li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Planificador_de_Turnos</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="modules.html">Entrega final - Jose Alessio Silva</a></li>
+      <li class="breadcrumb-item active">modelo module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/modelo.rst.txt" rel="nofollow"> Ver código fuente de la página</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-modelo">
+<span id="modelo-module"></span><h1>modelo module<a class="headerlink" href="#module-modelo" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.BaseData">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">BaseData</span></span><a class="reference internal" href="_modules/modelo.html#BaseData"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.BaseData" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo.Sujeto" title="modelo.Sujeto"><code class="xref py py-class docutils literal notranslate"><span class="pre">Sujeto</span></code></a></p>
+<p>Clase que gestiona la interacción con la base de datos SQLite.
+Hereda de Sujeto para implementar el patrón Observador.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.BaseData.alta">
+<span class="sig-name descname"><span class="pre">alta</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#BaseData.alta"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.BaseData.alta" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.BaseData.borrar">
+<span class="sig-name descname"><span class="pre">borrar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#BaseData.borrar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.BaseData.borrar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.BaseData.consulta_treeview">
+<span class="sig-name descname"><span class="pre">consulta_treeview</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#BaseData.consulta_treeview"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.BaseData.consulta_treeview" title="Link to this definition"></a></dt>
+<dd><p>Consulta los registros de la base de datos.
+:return: Una lista de tuplas con los registros de la base de datos, o None si no se pudo realizar la consulta.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.BaseData.crear_base">
+<span class="sig-name descname"><span class="pre">crear_base</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#BaseData.crear_base"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.BaseData.crear_base" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.BaseData.crear_tabla">
+<span class="sig-name descname"><span class="pre">crear_tabla</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">con</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#BaseData.crear_tabla"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.BaseData.crear_tabla" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Observador">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Observador</span></span><a class="reference internal" href="_modules/modelo.html#Observador"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Observador" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Esta clase representa el observador en el patrón Observador.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Observador.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Observador.update"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Observador.update" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.ObservadorConcreto">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">ObservadorConcreto</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#ObservadorConcreto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.ObservadorConcreto" title="Link to this definition"></a></dt>
+<dd><p>Bases: <a class="reference internal" href="#modelo.Observador" title="modelo.Observador"><code class="xref py py-class docutils literal notranslate"><span class="pre">Observador</span></code></a></p>
+<p>Esta clase es una implementación concreta del observador.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.ObservadorConcreto.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#ObservadorConcreto.update"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.ObservadorConcreto.update" title="Link to this definition"></a></dt>
+<dd><p>Esta función se llama cada vez que el sujeto notifica a los observadores.
+Recibe los datos enviados por el sujeto y los registra en un archivo de texto.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="modelo.Sujeto">
+<span class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></span><span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">Sujeto</span></span><a class="reference internal" href="_modules/modelo.html#Sujeto"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Sujeto" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Clase que representa el sujeto en el patrón Observador.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Sujeto.agregar">
+<span class="sig-name descname"><span class="pre">agregar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Sujeto.agregar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Sujeto.agregar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="modelo.Sujeto.notificar">
+<span class="sig-name descname"><span class="pre">notificar</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#Sujeto.notificar"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.Sujeto.notificar" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="modelo.Sujeto.observadores">
+<span class="sig-name descname"><span class="pre">observadores</span></span><span class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">[&lt;modelo.ObservadorConcreto</span> <span class="pre">object&gt;]</span></span><a class="headerlink" href="#modelo.Sujeto.observadores" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="modelo.decorador_log">
+<span class="sig-prename descclassname"><span class="pre">modelo.</span></span><span class="sig-name descname"><span class="pre">decorador_log</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">funcion</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/modelo.html#decorador_log"><span class="viewcode-link"><span class="pre">[fuente]</span></span></a><a class="headerlink" href="#modelo.decorador_log" title="Link to this definition"></a></dt>
+<dd><p>Esta función es un decorador que registra en un archivo 
+de texto cada vez que se ejecuta una función decorada.</p>
+</dd></dl>
+
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Pie de página">
+        <a href="mis_regex.html" class="btn btn-neutral float-left" title="mis_regex module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Anterior</a>
+        <a href="servidor.html" class="btn btn-neutral float-right" title="servidor module" accesskey="n" rel="next">Siguiente <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Derechos de autor 2026, Jose Alessio Silva.</p>
+  </div>
+
+  Compilado con <a href="https://www.sphinx-doc.org/">Sphinx</a> usando un
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">tema</a>
+    proporcionado por <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

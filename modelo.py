@@ -10,6 +10,12 @@ import socket
 
     # Decoradar de registro de log
 def decorador_log(funcion):
+    """
+    Esta función es un decorador que registra en un archivo 
+    de texto cada vez que se ejecuta una función decorada.
+
+    """
+
     def f_interna(*args, **kwargs):
         nombre_de_accion = funcion.__name__
         fecha = datetime.datetime.now()
@@ -22,6 +28,10 @@ def decorador_log(funcion):
 
     #Patron Observador
 class Sujeto:
+    """
+    Clase que representa el sujeto en el patrón Observador.
+    """
+
     observadores = []
 
     def agregar(self, obj):
@@ -32,15 +42,26 @@ class Sujeto:
             observador.update(args)
 
 class Observador:
+    """
+    Esta clase representa el observador en el patrón Observador.
+    """
+
     def update(self, *args):
         raise NotImplementedError("Delegación de actualización")
     
 class ObservadorConcreto(Observador):
+    """
+    Esta clase es una implementación concreta del observador.
+    """
     def __init__(self, obj):
         self.observador_concreto = obj
         self.observador_concreto.agregar(self)
 
     def update(self, *args):
+        """
+        Esta función se llama cada vez que el sujeto notifica a los observadores.
+        Recibe los datos enviados por el sujeto y los registra en un archivo de texto.
+        """
         print("Actualización dentro de ObservadorConcreto")
         # Datos recibidos desde el sujeto
         print("Datos recibidos: ", args)
@@ -50,6 +71,10 @@ class ObservadorConcreto(Observador):
             log.write(mensaje)
 
         # CLIENTE 
+        """
+        Esta parte del código se encarga de enviar un mensaje a un servidor de logs cada vez que se actualiza el observador.
+        El mensaje contiene los datos que se han guardado en la base de datos.
+        """
         HOST, PORT = "localhost", 9999
         mensaje_servidor = f"Registro Alta: {args}" 
         
@@ -67,6 +92,10 @@ class ObservadorConcreto(Observador):
 
 
 class BaseData(Sujeto):
+    """
+    Clase que gestiona la interacción con la base de datos SQLite.
+    Hereda de Sujeto para implementar el patrón Observador.
+    """
 
     def __init__(self):
         super().__init__()
@@ -99,6 +128,13 @@ class BaseData(Sujeto):
     # Alta
     @decorador_log
     def alta(self, nombre, apellido, dia): 
+        """
+        Da de alta un nuevo registro en la base de datos.
+        :param nombre: El nombre de la persona (str).
+        :param apellido: El apellido de la persona (str).
+        :param dia: El día del turno (str).
+        :return: None
+        """
         cadena = nombre
         obj = MisRegex()
         patron = obj.regex_nombre()
@@ -121,6 +157,11 @@ class BaseData(Sujeto):
     # Baja
     @decorador_log
     def borrar(self, tree):
+        """
+        Da de baja un registro en la base de datos.
+        :param tree: El Treeview desde el cual se selecciona el registro a borrar.
+        """
+
         valor = tree.selection()
         item = tree.item(valor)
         mi_id = item['text']
@@ -138,6 +179,11 @@ class BaseData(Sujeto):
 
     # Consulta
     def consulta_treeview(self,):
+        """
+        Consulta los registros de la base de datos.
+        :return: Una lista de tuplas con los registros de la base de datos, o None si no se pudo realizar la consulta.
+        """
+
         if not os.path.exists('base_planificador.db'):
             return None
         
